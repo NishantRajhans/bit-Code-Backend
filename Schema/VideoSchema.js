@@ -5,11 +5,11 @@ const VideoSchema = new mongoose.Schema(
         required: true,
         type:String
     },
-    VideoLink:{
+    VideoImage:{
         required: true,
         type:String
     },
-    Topic:{
+    VideoLink:{
         required: true,
         type:String
     },
