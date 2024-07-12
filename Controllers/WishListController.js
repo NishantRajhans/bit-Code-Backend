@@ -102,3 +102,18 @@ exports.RemoveFromReviewList=async(req,res)=>{
         })
     }
 }
+exports.GetDoneList=async(req,res)=>{
+    try{
+        const User=await UserSchema.find({Email:req.User.Email}).populate("DoneList").exec()
+        return res.status(200).json({
+            success: true,
+            message:"DoneList fetch successfully",
+            User:User
+        })
+    }catch(err){
+        return res.status(200).json({
+            success: false,
+            message:"Error in GetDoneList"
+        })
+    }
+}
