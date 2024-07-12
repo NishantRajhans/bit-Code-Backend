@@ -74,7 +74,7 @@ exports.GetLoveBubberSheet = async (req, res) => {
 exports.GetCSES_ProblemSet = async (req, res) => {
   try {
     const Questions = await QuestionSchema.find({ Tag: "CSES" }).exec();
-    const groupedQuestions = {};
+    const groupedQuestions ={};
     Questions.forEach((question) => {
       const topic = question.Topic;
       if (!groupedQuestions[topic]) {
@@ -117,26 +117,4 @@ exports.GetSeniorSheet = async (req, res) => {
     });
   }
 };
-exports.GetA2OJQuestions = async (req, res) => {
-  try {
-    const Questions = await QuestionSchema.find({ Tag: "A2OJ" }).exec();
-    const groupedQuestions = {};
-    Questions.forEach((question) => {
-      const topic = question.Topic;
-      if (!groupedQuestions[topic]) {
-        groupedQuestions[topic] = [];
-      }
-      groupedQuestions[topic].push(question);
-    });
-    return res.status(200).json({
-      success: true,
-      message: "Get A2OJ Questions successfully",
-      groupedQuestions: groupedQuestions,
-    });
-  } catch (err) {
-    return res.status(200).json({
-      success: false,
-      message: "Error in GetA2OJQuestions",
-    });
-  }
-};
+

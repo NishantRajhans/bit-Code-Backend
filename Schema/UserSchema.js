@@ -17,13 +17,13 @@ const UserSchema = new mongoose.Schema(
         type:String,
         required: true
     },
-    QuestionDone:[
+    DoneList:[
         {
             type:mongoose.Schema.Types.ObjectId,
             ref:"QuestionSchema"
         }
     ],
-    QuestionMark:[
+    ReviewList:[
         {
             type:mongoose.Schema.Types.ObjectId,
             ref:"QuestionSchema"
