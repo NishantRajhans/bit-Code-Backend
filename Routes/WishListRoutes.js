@@ -6,5 +6,5 @@ router.post('/AddToDoneList',AuthMiddleware,AddToDoneList);
 router.post('/RemoveFromDoneList',AuthMiddleware,RemoveFromDoneList);
 router.post('/AddToReviewList',AuthMiddleware,AddToReviewList);
 router.post('/RemoveFromReviewList',AuthMiddleware,RemoveFromReviewList);
-router.post('/GetDoneList',AuthMiddleware,GetDoneList);
+router.get('/GetDoneList',AuthMiddleware,GetDoneList);
 module.exports = router;
