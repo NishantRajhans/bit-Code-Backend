@@ -295,17 +295,11 @@ const Sendmail = async (FirstName, Email, UserId) => {
 };
 exports.LogIn = async (req, res) => {
   try {
-    const { Email, Password, ConfirmPassword } = req.body;
-    if (!Email || !Password || !ConfirmPassword) {
+    const { Email, Password} = req.body;
+    if (!Email || !Password) {
       return res.status(200).json({
         success: false,
         message: "All fields are required",
-      });
-    }
-    if (Password !== ConfirmPassword) {
-      return res.status(200).json({
-        success: false,
-        message: "Password and Confirm Password do not match",
       });
     }
     const User = await UserSchema.findOne({ Email: Email });
